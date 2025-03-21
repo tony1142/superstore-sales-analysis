@@ -79,7 +79,6 @@ The original dataset required several wrangling steps to prepare it for analysis
 
 ## Files in This Folder
 - `Sample - Superstore.xls`: The original dataset file with three sheets (Orders, Returns, People).
-- `Superstore_Returns_utf8.csv`: Initial UTF-8 encoded CSV file created from the Returns sheet (not used in final import).
 - `Superstore_Orders_ascii.csv`: ASCII-encoded CSV file created from the Orders sheet.
 - `Superstore_Orders_Reordered.csv`: Reordered version of `Superstore_Orders_ascii.csv` used for import into MySQL.
 - `Superstore_Returns_ascii.csv`: ASCII-encoded CSV file created from the Returns sheet, used for import into MySQL.
