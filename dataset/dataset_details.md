@@ -70,6 +70,19 @@ To prepare the dataset for MySQL analysis, several data transformation steps wer
 > 💡 All steps are documented in `data_wrangling_mysql.sql` and `data_preparation_mysql.sql`.
 
 ## Files in This Folder
+
+| File Name                      | Description                                          |
+|-------------------------------|------------------------------------------------------|
+| Sample - Superstore.xls       | Original Excel dataset with 3 sheets                |
+| Superstore_Orders_ascii.csv   | ASCII-encoded version of the Orders sheet           |
+| Superstore_Orders_Reordered.csv | Reordered for import (moved `product_name` column) |
+| Superstore_Returns_ascii.csv  | ASCII-encoded Returns data                          |
+| Superstore_People_ascii.csv   | ASCII-encoded People data                           |
+| dataset_details.md            | This documentation file                             |
+
+---
+
+## Files in This Folder
 - `Sample - Superstore.xls`: The original dataset file with three sheets (Orders, Returns, People).
 - `Superstore_Orders_ascii.csv`: ASCII-encoded CSV file created from the Orders sheet.
 - `Superstore_Orders_Reordered.csv`: Reordered version of `Superstore_Orders_ascii.csv` used for import into MySQL.
