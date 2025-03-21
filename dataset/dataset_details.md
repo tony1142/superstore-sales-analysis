@@ -55,7 +55,7 @@ To prepare the dataset for MySQL analysis, several data transformation steps wer
 - **Solution**: Re-encoded all files to **ASCII** for seamless MySQL import.
 
 ### 2. Column Reordering for MySQL Import
-- The **Orders** sheet contained **comma-separated product names**, causing column misalignment.
+- The **Orders** sheet contained **comma-separated product names along with various special characters**, causing column misalignment.
 - **Solution**: Moved `product_name` to the **last column**, preventing import errors.
 
 ### 3. MySQL Table Import & Type Conversion
@@ -65,12 +65,12 @@ To prepare the dataset for MySQL analysis, several data transformation steps wer
 
 ### 4. View Creation for Analysis
 - A SQL **view** (`vw_superstore_analysis`) was created to integrate **Orders**, **Returns**, and **People** tables.
-- This simplified analysis by providing a **single unified dataset**.
+- This simplified the analysis by providing a **single unified dataset**.
 
 ### 5. Returns Table Limitation
 - The **Returns** table only identifies returned orders, not individual returned products.
 - As a result, return analysis is limited to the **order level**, not the **product level**.
-- **Workaround**: Estimated product-level returns by joining Returns with Orders and assuming all items in a returned order were affected.
+- **Workaround**: Estimate product-level returns by joining Returns with Orders while assuming all items in a returned order were affected.
 
 > 💡 All steps are documented in `data_wrangling_mysql.sql` and `data_preparation_mysql.sql`.
 
