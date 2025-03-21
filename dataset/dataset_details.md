@@ -67,6 +67,11 @@ To prepare the dataset for MySQL analysis, several data transformation steps wer
 - A SQL **view** (`vw_superstore_analysis`) was created to integrate **Orders**, **Returns**, and **People** tables.
 - This simplified analysis by providing a **single unified dataset**.
 
+### 5. Returns Table Limitation
+- The **Returns** table only identifies returned orders, not individual returned products.
+- As a result, return analysis is limited to the **order level**, not the **product level**.
+- **Workaround**: Estimated product-level returns by joining Returns with Orders and assuming all items in a returned order were affected.
+
 > 💡 All steps are documented in `data_wrangling_mysql.sql` and `data_preparation_mysql.sql`.
 
 ## Files in This Folder
