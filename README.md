@@ -9,7 +9,7 @@ This repository contains a SQL-based analysis of the Superstore sales dataset, u
 - **Excel File**: Formatted analysis results with conditional formatting in the [excel_files](https://github.com/tony1142/superstore-sales-analysis/tree/main/excel_files) folder.
 
 ## Dataset
-The dataset used in this project is the Sample Superstore Sales dataset, sourced from the Tableau Community via Kaggle: [Sample - Superstore Sales (Excel).xls](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls). Full details, including data wrangling steps, are available in the [dataset_details.md](https://github.com/tony1142/superstore-sales-analysis/blob/main/dataset/dataset_details.md) file.
+The dataset used in this project is the Sample Superstore Sales dataset, sourced from the Tableau Community [Sample - Superstore Sales (Excel).xls](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls). Full details, including data wrangling steps, are available in the [dataset_details.md](https://github.com/tony1142/superstore-sales-analysis/blob/main/dataset/dataset_details.md) file.
 
 ## Repository Structure
 - `dataset/`: Original dataset and intermediate files.
