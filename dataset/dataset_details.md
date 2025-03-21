@@ -9,7 +9,7 @@ The dataset originates from the **Tableau Community via Kaggle** and was provide
 | Sheet   | Purpose                      | Rows   |
 |---------|------------------------------|--------|
 | Orders  | Main sales transaction data  | 9,994  |
-| Returns | Flag for returned orders     | 296    |
+| Returns | Returned orders information  | 296    |
 | People  | Regional manager assignments | 4      |
 
 For analysis, the dataset was converted into **MySQL tables**, maintaining the same structure.
