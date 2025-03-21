@@ -45,34 +45,29 @@ Each table contains key fields relevant to sales, returns, and management.
 - `region`: Sales region  
 - `person`: Assigned regional manager  
 
-## Data Wrangling Steps
-The original dataset required several wrangling steps to prepare it for analysis in MySQL:
+## Data Wrangling Process
 
-1. **Initial Conversion of Smaller Files with UTF-8 Encoding**:
-   - The smaller sheets (`Returns` and `People`) were converted first to test the import process, using UTF-8 encoding:
-     - The `Returns` sheet was saved as `Superstore_Returns_utf8.csv`.
-     - The `People` sheet was saved as `Superstore_People_utf8.csv`.
-   - These UTF-8 encoded files caused import issues in MySQL, likely due to special characters or formatting.
+To prepare the dataset for MySQL analysis, several data transformation steps were required.
 
-2. **Switch to ASCII Encoding for All Files**:
-   - After encountering issues with UTF-8, all three sheets were converted to CSV files using ASCII encoding:
-     - The `Orders` sheet was saved as `Superstore_Orders_ascii.csv`.
-     - The `Returns` sheet was saved as `Superstore_Returns_ascii.csv`.
-     - The `People` sheet was saved as `Superstore_People_ascii.csv`.
+### 1. Initial CSV Conversion & Encoding Fixes
+- The **Orders**, **Returns**, and **People** sheets were converted to CSV format.
+- **UTF-8 encoding** caused import issues in MySQL (likely due to special characters).
+- **Solution**: Re-encoded all files to **ASCII** for seamless MySQL import.
 
-3. **Column Reordering for Orders**:
-   - The `Superstore_Orders_ascii.csv` file had issues with comma-separated values in the `product_name` column (due to overly detailed product names), causing misalignment during the MySQL import.
-   - The columns were reordered to move `product_name` to the last column, creating `Superstore_Orders_Reordered.csv`.
+### 2. Column Reordering for MySQL Import
+- The **Orders** sheet contained **comma-separated product names**, causing column misalignment.
+- **Solution**: Moved `product_name` to the **last column**, preventing import errors.
 
-4. **Import into MySQL**:
-   - The reordered `Superstore_Orders_Reordered.csv` was imported into a temporary table (`temp_orders`) in MySQL.
-   - Type conversion was applied (e.g., converting `order_date` to DATE, `sales` to DECIMAL) to create the final `orders` table.
-   - `Superstore_Returns_ascii.csv` and `Superstore_People_ascii.csv` were imported into the `returns` and `people` tables, respectively.
-   - These steps are documented in the [data_wrangling_mysql.sql](../../sql_scripts/data_wrangling_mysql.sql) script.
+### 3. MySQL Table Import & Type Conversion
+- `Superstore_Orders_Reordered.csv` was first imported into a **temporary table** (`temp_orders`).
+- **Data types** were adjusted (e.g., `order_date` → `DATE`, `sales` → `DECIMAL`).
+- Final **Orders**, **Returns**, and **People** tables were created.
 
-5. **View Creation**:
-   - A view (`vw_superstore_analysis`) was created to join the `orders`, `returns`, and `people` tables for analysis.
-   - This step is documented in the [data_preparation_mysql.sql](../../sql_scripts/data_preparation_mysql.sql) script.
+### 4. View Creation for Analysis
+- A SQL **view** (`vw_superstore_analysis`) was created to integrate **Orders**, **Returns**, and **People** tables.
+- This simplified analysis by providing a **single unified dataset**.
+
+> 💡 All steps are documented in `data_wrangling_mysql.sql` and `data_preparation_mysql.sql`.
 
 ## Files in This Folder
 - `Sample - Superstore.xls`: The original dataset file with three sheets (Orders, Returns, People).
