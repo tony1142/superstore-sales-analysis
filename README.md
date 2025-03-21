@@ -4,7 +4,7 @@ This repository contains a SQL-based analysis of the Superstore sales dataset, u
 
 ## Project Overview
 - **Portfolio Page**: View the full analysis and findings in the [SQL Sales Performance Analysis portfolio page](https://tonynick.notion.site/SQL-Sales-Performance-Analysis-1b99c67da0d480e0a7c7fa3377aaa935) (if hosted on GitHub Pages) or [index.md](index.md).
-- **SQL Scripts**: Located in the [sql_scripts](sql_scripts/) folder, including data wrangling, preparation, exploratory queries, and regional sales analysis.
+- **SQL Scripts**: Located in the [sql_scripts](https://github.com/tony1142/superstore-sales-analysis/tree/sql_scripts) folder, including data wrangling, preparation, exploratory queries, and regional sales analysis.
 - **CSV Outputs**: Results of the SQL analysis, ready for Tableau/Power BI, in the [csv_outputs](csv_outputs/) folder.
 - **Excel File**: Formatted analysis results with conditional formatting in the [excel_files](excel_files/) folder.
 
