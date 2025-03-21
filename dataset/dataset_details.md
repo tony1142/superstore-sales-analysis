@@ -81,11 +81,3 @@ To prepare the dataset for MySQL analysis, several data transformation steps wer
 | dataset_details.md            | This documentation file                             |
 
 ---
-
-## Files in This Folder
-- `Sample - Superstore.xls`: The original dataset file with three sheets (Orders, Returns, People).
-- `Superstore_Orders_ascii.csv`: ASCII-encoded CSV file created from the Orders sheet.
-- `Superstore_Orders_Reordered.csv`: Reordered version of `Superstore_Orders_ascii.csv` used for import into MySQL.
-- `Superstore_Returns_ascii.csv`: ASCII-encoded CSV file created from the Returns sheet, used for import into MySQL.
-- `Superstore_People_ascii.csv`: ASCII-encoded CSV file created from the People sheet, used for import into MySQL.
-- `dataset_details.md`: This file, documenting the dataset and wrangling steps.
