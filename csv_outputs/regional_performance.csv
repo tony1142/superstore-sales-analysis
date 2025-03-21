@@ -1,0 +1,6 @@
+region,total_orders,total_revenue,total_profit,profit_margin_pct,avg_discount_pct,total_discount_amount,weighted_avg_discount_pct
+West,1611,725458,108418,14.9,10.9,93407,12.9
+East,1401,678781,91523,13.5,14.5,94609,13.9
+South,822,391722,46749,11.9,14.7,56779,14.5
+Central,1175,501240,39706,7.9,24.0,77788,15.5
+AVERAGE,1252,574300,71599,12.1,16.0,80646,14.2

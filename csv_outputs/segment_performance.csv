@@ -1,0 +1,13 @@
+region,segment,total_orders,customer_count,orders_per_customer,segment_revenue,pct_of_region_revenue,segment_profit,pct_of_region_profit,profit_margin,weighted_discount
+Central,Corporate,348,180,1.9,157996,0.315,18704,0.471,0.118,0.140
+Central,"Home Office",223,121,1.8,91213,0.182,12438,0.313,0.136,0.125
+Central,Consumer,604,328,1.8,252031,0.503,8564,0.216,0.034,0.176
+East,Consumer,713,344,2.1,350908,0.517,41191,0.450,0.117,0.154
+East,"Home Office",254,124,2.0,127464,0.188,26709,0.292,0.210,0.117
+East,Corporate,434,206,2.1,200409,0.295,23623,0.258,0.118,0.128
+South,Consumer,444,276,1.6,195581,0.499,26914,0.576,0.138,0.118
+South,Corporate,247,152,1.6,121886,0.311,15215,0.325,0.125,0.127
+South,"Home Office",131,84,1.6,74255,0.190,4621,0.099,0.062,0.245
+West,Consumer,825,358,2.3,362881,0.500,57451,0.530,0.158,0.124
+West,Corporate,485,204,2.4,225855,0.311,34437,0.318,0.152,0.125
+West,"Home Office",301,124,2.4,136722,0.188,16530,0.152,0.121,0.149

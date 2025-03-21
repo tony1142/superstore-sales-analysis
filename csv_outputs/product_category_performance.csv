@@ -1,0 +1,13 @@
+region,category,total_orders,category_revenue,pct_of_region_revenue,category_profit,pct_of_region_profit,profit_margin,weighted_discount
+Central,Technology,356,170416,0.340,33697,0.849,0.198,0.141
+Central,"Office Supplies",880,167026,0.333,8880,0.224,0.053,0.141
+Central,Furniture,403,163797,0.327,-2871,-0.072,-0.018,0.185
+East,Technology,443,264974,0.390,47462,0.519,0.179,0.131
+East,"Office Supplies",1074,205516,0.303,41015,0.448,0.200,0.103
+East,Furniture,488,208291,0.307,3046,0.033,0.015,0.185
+South,"Office Supplies",619,125651,0.321,19986,0.428,0.159,0.119
+South,Technology,255,148772,0.380,19992,0.428,0.134,0.181
+South,Furniture,278,117299,0.299,6771,0.145,0.058,0.127
+West,"Office Supplies",1169,220853,0.304,52610,0.485,0.238,0.076
+West,Technology,490,251992,0.347,44304,0.409,0.176,0.146
+West,Furniture,595,252613,0.348,11505,0.106,0.046,0.158

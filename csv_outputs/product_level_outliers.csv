@@ -1,0 +1,21 @@
+region,segment,product_name,sales,profit,order_count,pct_impact_on_region_profit
+East,Consumer,"Cubify CubeX 3D Printer Double Head Print",6300,-9240,2,-10.096
+South,Corporate,"Cubify CubeX 3D Printer Triple Head Print",8000,-3840,1,-8.214
+Central,Consumer,"GBC DocuBind P400 Electric Binding System",8710,-3049,3,-7.678
+Central,Corporate,"Ibico EPK-21 Electric Binding System",1890,-2929,1,-7.378
+Central,Consumer,"Fellowes PB500 Electric Punch Plastic Comb Binding Machine with Manual Bind",1525,-2288,1,-5.762
+South,Consumer,"GBC Ibimaster 500 Manual ProClick Binding System",2968,-1979,2,-4.232
+South,Consumer,"Chromcraft Bull-Nose Wood Oval Conference Tables & Bases",4298,-1862,1,-3.984
+South,"Home Office","Cisco TelePresence System EX90 Videoconferencing Unit",22638,-1811,1,-3.874
+Central,Consumer,"3.6 Cubic Foot Counter Height Office Refrigerator",530,-1379,3,-3.473
+Central,Consumer,"Lexmark MX611dhe Monochrome Laser Printer",8160,-1360,1,-3.425
+Central,Consumer,"Ibico Hi-Tech Manual Binding System",732,-1281,3,-3.226
+West,"Home Office","Lexmark MX611dhe Monochrome Laser Printer",2550,-3400,1,-3.136
+Central,Consumer,"Hoover Upright Vacuum With Dirt Cup",463,-1181,1,-2.975
+Central,Corporate,"GBC Ibimaster 500 Manual ProClick Binding System",761,-1141,1,-2.875
+South,"Home Office","GBC DocuBind P400 Electric Binding System",1633,-1307,1,-2.795
+South,Consumer,"Bush Advantage Collection Racetrack Conference Table",2715,-1111,2,-2.377
+South,"Home Office","Chromcraft Bull-Nose Wood Oval Conference Tables & Bases",2314,-1003,1,-2.145
+South,Corporate,"Balt Solid Wood Round Tables",1875,-969,1,-2.073
+East,Consumer,"Riverside Palais Royal Lawyers Bookcase, Royale Cherry Finish",7312,-1506,2,-1.646
+East,Consumer,"Martin Yale Chadless Opener Electric Letter Opener",5330,-1199,2,-1.310
