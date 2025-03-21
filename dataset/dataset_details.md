@@ -4,7 +4,7 @@
 This project uses the **Sample Superstore Sales** dataset, a widely used dataset for data analysis and visualization. It contains **four years of sales data (2014–2017)** for a fictional Superstore, spanning **9,994 records** across three tables: `Orders`, `Returns`, and `People`.
 
 ## Source & Structure
-The dataset originates from the **Tableau Community via Kaggle** and was provided as an [Excel (.xls) file](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls) with three sheets:
+This dataset originates from the **Tableau Community via Kaggle** and was provided as an [Excel (.xls) file](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls) with three sheets:
 
 | Sheet   | Purpose                      | Rows   |
 |---------|------------------------------|--------|
