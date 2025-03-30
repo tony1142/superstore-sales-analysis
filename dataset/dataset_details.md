@@ -1,129 +1,179 @@
-# Dataset Details – Superstore Power BI Dashboard
+# Dataset Details
+ 
 
+ 
 ## Overview
+ 
+This project uses the **Sample Superstore Sales** dataset, a widely used dataset for data analysis and visualization. It contains **four years of sales data (2014–2017)** for a fictional Superstore, spanning **9,994 records** across three tables: `Orders`, `Returns`, and `People`.
+ 
 
-This Power BI project uses the Sample Superstore Sales dataset, which contains four years of sales data (2014–2017) for a fictional retail business. The dataset includes transaction-level details on customer orders, returns, and regional sales assignments across the United States.
+ 
+## Source & Structure
+ 
 
-The original dataset was provided as an Excel (.xls) file with three sheets: `Orders`, `Returns`, and `People`.
+The dataset originates from the **Tableau Community via Kaggle** and was provided as an [Excel (.xls) file](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls) with three sheets:
+ 
 
-- Orders: 9,994 rows
-- Returns: 296 rows
-- People: 4 rows
+This dataset originates from the **Tableau Community via Kaggle** and was provided as an [Excel (.xls) file](https://community.tableau.com/s/question/0D54T00000CWeX8SAL/sample-superstore-sales-excelxls) with three sheets:
+ 
 
-For this Power BI project, only the `Orders` and `Returns` tables were used.
+ 
+| Sheet   | Purpose                      | Rows   |
+ 
+|---------|------------------------------|--------|
+ 
+| Orders  | Main sales transaction data  | 9,994  |
+ 
+| Returns | Returned orders information  | 296    |
+ 
+| People  | Regional manager assignments | 4      |
+ 
 
-## Source
+ 
+For analysis, the dataset was converted into **MySQL tables**, maintaining the same structure.
+ 
 
-This dataset originates from the Tableau Community and is publicly available via Kaggle:
+ 
+## Database Structure
+ 
 
-[https://www.kaggle.com/datasets/jessemostipak/sample-superstore](https://www.kaggle.com/datasets/jessemostipak/sample-superstore)
+ 
+Each table contains key fields relevant to sales, returns, and management.
+ 
 
+ 
+### Orders Table (Sales Transactions)
+ 
+- `row_id`: Unique identifier for each row  
+ 
+- `order_id`: Unique identifier for each order  
+ 
+- `order_date`: Date of the order  
+ 
+- `ship_date`: Date of shipment  
+ 
+- `ship_mode`: Shipping method  
+ 
+- `customer_id`: Unique customer identifier  
+ 
+- `customer_name`: Name of the customer  
+ 
+- `segment`: Customer segment (Consumer, Corporate, Home Office)  
+ 
+- `region`: Region of the sale (West, East, South, Central)  
+ 
+- `product_id`: Unique identifier for the product  
+ 
+- `category`: Product category (Technology, Office Supplies, Furniture)  
+ 
+- `sub_category`: Product sub-category (e.g., Phones, Chairs)  
+ 
+- `product_name`: Name of the product  
+ 
+- `sales`: Sales amount  
+ 
+- `quantity`: Quantity sold  
+ 
+- `discount`: Discount applied  
+ 
+- `profit`: Profit amount  
+ 
 
-## Tables Used
+ 
+### Returns Table (Returned Orders)
+ 
+- `order_id`: Links to the `Orders` table  
+ 
+- `returned`: Indicates if the order was returned (`Yes` / `No`)  
+ 
 
-### 1. Orders Table (Sales Transactions)
+ 
+### People Table (Regional Management)
+ 
+- `region`: Sales region  
+ 
+- `person`: Assigned regional manager  
+ 
 
-The `Orders` table contains the core transaction-level sales data used to calculate KPIs such as Sales, Profit, Quantity, and Discount. It also provides the necessary categorical dimensions for slicing and filtering visualizations.
+ 
+## Data Wrangling Process
+ 
 
-**Fields used:**
-- `Order ID`: Primary key for transaction identification
-- `Order Date`: Used for all time-based analysis (linked to custom date table)
-- `Sales`: Transaction revenue (aggregated using SUM)
-- `Profit`: Profit per transaction (aggregated using SUM)
-- `Category`: Product category (Technology, Office Supplies, Furniture)
-- `Sub-Category`: More specific product classification (e.g., Phones, Chairs)
-- `Region`: Sales region (West, East, South, Central)
-- `State`: State-level location for geographic analysis
-- `Segment`: Customer segment (Consumer, Corporate, Home Office)
+ 
+To prepare the dataset for MySQL analysis, several data transformation steps were required.
+ 
 
-**Fields removed:**
-- `Row ID`: Unique row index not needed for analysis
-- `Ship Date`, `Ship Mode`: Not relevant to the business questions answered in this report
-- `Product ID`: Excluded to simplify the model, as product-level analysis was done by Sub-Category
+ 
+### 1. Initial CSV Conversion & Encoding Fixes
+ 
+- The **Orders**, **Returns**, and **People** sheets were converted to CSV format.
+ 
+- **UTF-8 encoding** caused import issues in MySQL (likely due to special characters).
+ 
+- **Solution**: Re-encoded all files to **ASCII** for seamless MySQL import.
+ 
 
-These unused columns were removed to keep the data model compute efficient and focused on the core analytical goals.
+ 
+### 2. Column Reordering for MySQL Import
+ 
+- The **Orders** sheet contained **comma-separated product names along with various special characters**, causing column misalignment.
+ 
+- **Solution**: Moved `product_name` to the **last column**, preventing import errors.
+ 
 
+ 
+### 3. MySQL Table Import & Type Conversion
+ 
+- `Superstore_Orders_Reordered.csv` was first imported into a **temporary table** (`temp_orders`).
+ 
+- **Data types** were adjusted (e.g., `order_date` → `DATE`, `sales` → `DECIMAL`).
+ 
+- Final **Orders**, **Returns**, and **People** tables were created.
+ 
+
+ 
+### 4. View Creation for Analysis
+ 
+- A SQL **view** (`vw_superstore_analysis`) was created to integrate **Orders**, **Returns**, and **People** tables.
+ 
+- This simplified the analysis by providing a **single unified dataset**.
+ 
+
+ 
+### 5. Returns Table Limitation
+ 
+- The **Returns** table only identifies returned orders, not individual returned products.
+ 
+- As a result, return analysis is limited to the **order level**, not the **product level**.
+ 
+- **Workaround**: Estimate product-level returns by joining Returns with Orders while assuming all items in a returned order were affected.
+ 
+
+ 
+> 💡 All steps are documented in `data_wrangling_mysql.sql` and `data_preparation_mysql.sql`.
+ 
+
+ 
+## Files in This Folder
+ 
+
+ 
+| File Name                      | Description                                          |
+ 
+|-------------------------------|------------------------------------------------------|
+ 
+| Sample - Superstore.xls       | Original Excel dataset with 3 sheets                |
+ 
+| Superstore_Orders_ascii.csv   | ASCII-encoded version of the Orders sheet           |
+ 
+| Superstore_Orders_Reordered.csv | Reordered for import (moved `product_name` column) |
+ 
+| Superstore_Returns_ascii.csv  | ASCII-encoded Returns data                          |
+ 
+| Superstore_People_ascii.csv   | ASCII-encoded People data                           |
+ 
+| dataset_details.md            | This documentation file                             |
+ 
+
+ 
 ---
-
-### 2. Returns Table (Returned Orders)
-
-The `Returns` table was used to identify which orders were returned. It is a simple reference table containing:
-
-- `Order ID`: Identifier used to join with the Orders table
-
-A relationship was established between `Returns[Order ID]` and `Orders[Order ID]`. Return rates were calculated using DAX by comparing distinct order counts in both tables.
-
-The `Returned` column (Yes/No) was not imported, as only the presence or absence of the Order ID was needed for analysis.
-
-## Custom Date Table
-
-To support accurate time intelligence functions such as `SAMEPERIODLASTYEAR`, a custom date table was created using Data Analysis Expressions (DAX). This approach avoids reliance on Power BI’s auto-generated date hierarchies, which can create multiple redundant date tables in the background and degrade performance.
-
-### DAX Formula:
-
-```dax
-Date Table = 
-ADDCOLUMNS(
-    CALENDAR(MIN(Orders[Order Date]), MAX(Orders[Order Date])),
-    "Start of Month", EOMONTH([Date], -1) + 1
-)
-```
-
-The table was marked as a **Date Table** in Power BI and linked to `Orders[Order Date]`. `Start of Month` is used for monthly grouping in time-series visuals.
-
----
-
-## Custom Columns
-
-To improve the clarity of tooltips and categorical date displays, a clean Month-Year label was created:
-
-```dax
-Month Year Label = FORMAT('Date Table'[Start of Month], "MMM YYYY")
-```
-
-This field is used in custom tooltip pages to show readable hover labels (e.g., "Jan 2017") instead of full potentially misleading date stamps.
-
----
-
-## Data Model Relationships
-
-The final data model includes three core tables and one measures table:
-
-- **Orders → Date Table**  
-  Relationship: Many-to-one  
-  Used to support time-based filtering and DAX time intelligence functions. Linked on `Orders[Order Date] → Date Table[Date]`.
-
-- **Orders → Returns**  
-  Relationship: One-to-many  
-  Used to compute return percentages based on matching `Order ID`.
-
-- **Key Measures Table**  
-  This standalone table was created to organize all custom DAX measures for improved clarity and reuse.
-
-The model design follows a star schema pattern to improve performance, simplify calculations, and enable clean filtering across visuals.
-
----
-
-## Data Cleaning & Transformation Notes
-
-- Tables were imported from `Sample - Superstore.xls`
-- Headers were promoted on import
-- Only necessary columns were retained
-- No transformations beyond header promotions, column removal and renaming were performed
-- Relationships created:
-  - `Orders[Order ID]` → `Returns[Order ID]`
-  - `Orders[Order Date]` → `Date Table[Date]`
-
----
-
-## Model & Visualization Design Notes
-
-- A collapsible slicer panel was created using image icons, bookmarks, and selection panes to allow users to show/hide filter options intuitively.
-- A tooltip page was designed for time-series visuals using a clean Month-Year label (`MMM YYYY`) to clearly display point-in-time comparisons.
-- Conditional formatting was applied to profit-based visuals (map and bar chart) to highlight negative profit using red tones, improving the communication of loss-making areas.
-
----
-
-## Summary
-
-This dataset was intentionally minimized and cleaned to support a focused set of KPIs and visualizations tied directly to business performance. All enhancements were made with clarity, speed, and practical decision-making in mind.
